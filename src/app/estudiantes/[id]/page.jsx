@@ -27,8 +27,12 @@ async function Estudiante({ id }) {
     return (
         <>
             <p>Estudiante: {estudiante.nombre} </p>
-            <p>{estudiante.foto}</p>
-            <p>Fecha de nacimiento: {estudiante.fecha_nacimiento}</p>
+            <img
+                src={estudiante.foto || '/user.png'}
+                alt="foto"
+                className='size-24'
+            />
+            <p>Fecha de nacimiento: {estudiante.fecha_nacimiento.toLocaleDateString()}</p>
             <p>Tutor legal: {estudiante.tutor_legal}</p>
         </>
     )

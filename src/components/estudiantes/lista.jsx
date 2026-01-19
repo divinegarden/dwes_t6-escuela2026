@@ -11,7 +11,6 @@ export default function Lista({ promesaEstudiantes }) {
     return (
         <div className='flex flex-wrap gap-10'>
             {estudiantes.map((estudiante) => <Item estudiante={estudiante} key={estudiante.id} />)}
-            <button onClick={() => alert('hola')}>Boton</button>
         </div>
     )
 }
@@ -23,11 +22,11 @@ function Item({ estudiante }) {
 
     return (
         <Link href={`/estudiantes/${estudiante.id}`} >
-            <div className='bg-blue-100'>
-                <p>Estudiante: {estudiante.nombre} </p>
-                <p>{estudiante.foto}</p>
-                <p>Fecha de nacimiento: {estudiante.fecha_nacimiento}</p>
-                <p>Tutor legal: {estudiante.tutor_legal}</p>
+            <div className='border-pink-200 bg-pink-50 border-3 rounded-2xl p-3 mx-1'>
+                <p><span className='font-bold'>Estudiante:</span> {estudiante.nombre} </p>
+                <img src={estudiante.foto}/>
+                <p><span className='font-bold'>Fecha de nacimiento:</span> {estudiante.fecha_nacimiento.toLocaleDateString()}</p>
+                <p><span className='font-bold'>Tutor legal:</span> {estudiante.tutor_legal}</p>
             </div>
         </Link>
     )
